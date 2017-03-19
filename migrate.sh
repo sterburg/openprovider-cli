@@ -1,0 +1,1 @@
+for i in /var/named/*.db; do domain=`basename $i |sed s/.db$//`; php cli.php -u=samterburg -h=ammehoela -c=createZoneDnsRequest -n=$domain --type=slave --masterIp=1.2.3.4 |tee -a /var/log/openprovider.log; done
